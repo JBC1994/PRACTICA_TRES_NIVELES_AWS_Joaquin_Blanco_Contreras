@@ -63,6 +63,16 @@ Dentro de VPC le daremos a **"Crear".**
 
 Nos saldrá el siguiente menú, el cúal tendremos que configurar según nuestro escenario indicado.
 
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/2ba33c2a-eb6b-4327-8c77-0cb8bdab28e3)
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/25ff5a87-f446-47e0-92aa-1c3651d6f19b)
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/4e2580b7-e33f-4c98-8c9c-60d8318c0506)
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/5ea63da9-952e-4c08-900d-0185a8f4df93)
+
+Bien, hasta aquí daremos por finalizada la configuración y creación de una **VPC**.
+
+
+
+
 
 
 
