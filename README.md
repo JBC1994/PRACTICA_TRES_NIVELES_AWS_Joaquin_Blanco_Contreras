@@ -1,7 +1,7 @@
 ## <p align="center">Índice</p> 
 ### <p align="right">Joaquín Blanco Contreras, Curso: ASIR2</p>
 
-1.0. [Implementación y Configuración de Balanceador de Carga con Apache en AWS](#Introducción-Pila-Lamp)
+1.0. [Implementación y Configuración de Balanceador de Carga con Apache en AWS](#Implementación-y-Configuración-de-Balanceador-de-Carga-con-Apache-en-AWS)
 -    1.1. [Escenario De La práctica](#Escenario-de-la-práctica)
 -    1.2. [Configuración Vagrantfile](#Configuración-Vagrantfile)
 -    1.3. [Script De Aprovisionamientos](#Script-De-Aprovisionamiento)
