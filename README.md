@@ -36,6 +36,10 @@ Tratará sobre un "Balanceador de carga con Apache" esté nos permitirá aceptar
 Bien, según el escenario mostrado, nuestra práctica tratará sobre: Un Balanceador de carga, dos servidores apache2, un servidor mariadb-server.
 En cada uno de ellos tendremos sus correspondientes configuraciones, pero todo ello en nuestro ecosistema de AWS. 
 Trabajaremos con 2 subredes, una de ella la haremos publica y la otra obviamente quedará como privada. Con la pública haremos NAT para poder tener salida a internet junto con una IP Elástica que AWS nos proporcionará.
+Tendremos que controlar que nuestro Balanceador tendrá acceso a internet y además deberá poder conectarse sin problemas a los host de backend apache2. Pero ¡NO! con nuestro servidor MariaDB.
+De igual manera, nuestros servidores backend apache2 se podrán conectar a nuestra máquina "Balanceador", estás máquinas no tendrán acceso a internet, y sí podrán conectarse con el servidor MariaDB.
+Nuestro servidor MariaDB solo podrá conectarse a nuestros backend y de igualmanera no tendrán acceso a internet.
+**(NOTA).-** ***Cuando decimos que no tendrán acceso a internet, será cuando terminemos de instalar los servicios correspondientes.***
 
 ## ¿Qué es una VPC en AWS?
 
@@ -47,7 +51,20 @@ Una VPC nos brinda el control y aislamiento sobre los recursos en la nube, permi
 
 ## Creación de VPC en AWS
 
-Bien, dicho lo anterior y poniéndonos un poco en contexto, creo que ya podemos empezar
+Bien, dicho lo anterior y poniéndonos un poco en contexto, creo que ya podemos empezar a desarrollar dicha práctica.
+Daré por echo que obviamente tenemos acceso a AWS y a un laboratorio para poder trabajar con la plataforma. 
+Bien, una vez dentro de nuestro laboratorio, accederemos a **"VPC"**.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/3633438b-1973-475e-8e87-bf4ad65dcb9f)
+
+Dentro de VPC le daremos a **"Crear".**
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/f1bbae62-0e55-4d50-8638-43da20859e3d)
+
+Nos saldrá el siguiente menú, el cúal tendremos que configurar según nuestro escenario indicado.
+
+
+
 
 
 
