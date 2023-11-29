@@ -8,9 +8,10 @@
 -    1.4. [¿ Qué es una EC2 en AWS ?](#Qué-es-una-EC2-en-AWS)
 -    1.5. [Creación de EC2 en AWS](#Creación-de-EC2-en-AWS)
 
-2.0. [Despliegue De La herramienta Vagrant](#Despliegue-de-la-herramienta-Vagrant) 
--    2.1. [Escenario De La práctica](#Escenario-de-la-práctica)
--    2.2. [Carpeta Compartida En Vagrant](#Carpeta-Compartida-En-Vagrant)
+2.0. [¿ Qué es una IP elástica en AWS ?](#Qué-es-una-IP-elástica-en-AWS) 
+-    2.1. [Asociar una IP elástica a una instancia AWS](#Asociar-una-IP-elástica-a-una-instancia-AWS)
+-    2.2. [Conexión a instancias EC2 AWS](#Conexión-a-instancias-EC2-AWS)
+
 
 3.0. [Descarga De Repositorios](#Descarga-de-repositorios)
 -    3.1. [Configuración De Cliente Apache2](#Configuración-de-Cliente-Apache2)
@@ -80,9 +81,41 @@ Esto nos ofrece la flexibilidad y escalabilidad necesarias en nuestro entorno de
 
 ## Creación de EC2 en AWS
 
-Teniendo en cuenta nuestro apartado anterior, y comprendiendo mejor lo que significa las siglas **EC2**, vamos a proceder a crear tantas instancias como máquinas nos solicitan.
+Teniendo en cuenta el apartado anterior, y comprendiendo mejor lo que significa las siglas **EC2**, vamos a proceder a crear tantas instancias como máquinas nos solicitan en la práctica.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/3633438b-1973-475e-8e87-bf4ad65dcb9f)
+
+Para tener una mejor organización de las instancias, lo correcto sería darles nombres identificativos.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/c814e664-3f9e-41ff-900a-6abdc0cc610a)
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/407ccd01-eca8-4ee9-bad6-77cc22561151)
+
+Por no tener tanta redundancia de fotos enseñando lo mismo, quedaros con las configuraciones que veis en dichas fotos. No es más que eso, y tan solo, deberemos de crear tantas instancias como máquinas nos piden en el esquema, que son cuatro.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/d219559a-4f82-4315-ad6c-281663ca24e7)
+
+## Qué es una IP elástica en AWS
+
+La gran pregunta aquí es, ¿Qué es una IP elástica en AWS?
+Una IP elástica en AWS es una dirección IP persistente que puedes asignar y reasignar a tus recursos en la nube, como instancias EC2. A diferencia de las IP estáticas tradicionales, las IP elásticas te permiten mantener la misma dirección incluso si detienes y reinicias tu instancia, proporcionando estabilidad para aplicaciones y servicios en la nube.
+
+## Asociar una IP elástica a una instancia AWS
+
+
+## Conexión a instancias EC2 AWS
+
+Teniendo en cuenta que ya tenemos todas nuestras instancias, trataremos de configurarlas, pero para ello lo ideal sería conectarnos a ella por ssh. 
+Pero, ¿Como hacemos para conectarnos por SSH a ellas? bien, nos iremos a nuestro laboratorio, de ahí nos iremos a **AWS-Details** Descargaremos la clave **"PEM"**.
+Recordemos guardar dicha clave en nuestro lugar de trabajo en el cual solemos trabajar.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/2d6bc954-0501-471a-a924-6b4841052e29)
+
+En mi caso se encuentra en una carpeta que he creado donde almaceno mis prácticas.
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/1cee00a3-bf8c-4a58-814f-e30bbc2a71f0)
+Bien, una vez guardada nuestra 
+
+
 
 
 
