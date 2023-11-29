@@ -80,6 +80,9 @@ Esto nos ofrece la flexibilidad y escalabilidad necesarias en nuestro entorno de
 
 ## Creación de EC2 en AWS
 
+Teniendo en cuenta nuestro apartado anterior, y comprendiendo mejor lo que significa las siglas **EC2**, vamos a proceder a crear tantas instancias como máquinas nos solicitan.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/3633438b-1973-475e-8e87-bf4ad65dcb9f)
 
 
 
