@@ -3,9 +3,10 @@
 
 1.0. [Implementación y Configuración de Balanceador de Carga con Apache en AWS](#Implementación-y-Configuración-de-Balanceador-de-Carga-con-Apache-en-AWS)
 -    1.1. [Escenario De La práctica](#Escenario-de-la-práctica)
--    1.2. [¿Qué es una VPC en AWS?](#Qué-es-una-VPC-en-AWS)
+-    1.2. [¿ Qué es una VPC en AWS ?](#Qué-es-una-VPC-en-AWS)
 -    1.3. [Creación de VPC en AWS](#Creación-de-VPC-en-AWS)
--    1.4. [¿Qué es una EC2 en AWS?]
+-    1.4. [¿ Qué es una EC2 en AWS ?](#Qué-es-una-EC2-en-AWS)
+-    1.5. [Creación de EC2 en AWS](#Creación-de-EC2-en-AWS)
 
 2.0. [Despliegue De La herramienta Vagrant](#Despliegue-de-la-herramienta-Vagrant) 
 -    2.1. [Escenario De La práctica](#Escenario-de-la-práctica)
@@ -71,9 +72,13 @@ Nos saldrá el siguiente menú, el cúal tendremos que configurar según nuestro
 
 Bien, hasta aquí daremos por finalizada la configuración y creación de una **VPC**.
 
+## Qué es una EC2 en AWS 
 
+Una EC2 en AWS nos proporciona la capacidad de cómputo que necesitamos en la nube.
+Con este servicio, podemos lanzar y gestionar servidores virtuales, llamados instancias EC2, para ejecutar diversas aplicaciones y cargas de trabajo. 
+Esto nos ofrece la flexibilidad y escalabilidad necesarias en nuestro entorno de la nube de AWS.
 
-
+## Creación de EC2 en AWS
 
 
 
