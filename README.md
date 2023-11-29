@@ -3,7 +3,7 @@
 
 1.0. [Implementación y Configuración de Balanceador de Carga con Apache en AWS](#Implementación-y-Configuración-de-Balanceador-de-Carga-con-Apache-en-AWS)
 -    1.1. [Escenario De La práctica](#Escenario-de-la-práctica)
--    1.2. [¿Qué es una VPC en AWS?](#¿-Qué-es-una-VPC-en-AWS-?)
+-    1.2. [¿Qué es una VPC en AWS?](#-¿Qué-es-una-VPC-en-AWS?-)
 -    1.3. [Creación de VPC en AWS](#Creación-de-VPC-en-AWS)
 
 2.0. [Despliegue De La herramienta Vagrant](#Despliegue-de-la-herramienta-Vagrant) 
@@ -37,7 +37,7 @@ Bien, según el escenario mostrado, nuestra práctica tratará sobre: Un Balance
 En cada uno de ellos tendremos sus correspondientes configuraciones, pero todo ello en nuestro ecosistema de AWS. 
 Trabajaremos con 2 subredes, una de ella la haremos publica y la otra obviamente quedará como privada. Con la pública haremos NAT para poder tener salida a internet junto con una IP Elástica que AWS nos proporcionará.
 
-## ¿ Qué es una VPC en AWS ?
+## ¿Qué es una VPC en AWS?
 
 En este apartado, antes de empezar me gustaría definir lo siguiente, ¿Que es una VPC?
 Una VPC (Virtual Private Cloud) en AWS es un servicio que nos permite crear una red virtual aislada en la nube de Amazon.
