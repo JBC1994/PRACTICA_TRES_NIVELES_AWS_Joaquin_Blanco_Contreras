@@ -3,8 +3,9 @@
 
 1.0. [Implementación y Configuración de Balanceador de Carga con Apache en AWS](#Implementación-y-Configuración-de-Balanceador-de-Carga-con-Apache-en-AWS)
 -    1.1. [Escenario De La práctica](#Escenario-de-la-práctica)
--    1.2. [¿Qué es una VPC en AWS?](#-¿Qué-es-una-VPC-en-AWS?-)
+-    1.2. [¿Qué es una VPC en AWS?](#Qué-es-una-VPC-en-AWS)
 -    1.3. [Creación de VPC en AWS](#Creación-de-VPC-en-AWS)
+-    1.4. [¿Qué es una EC2 en AWS?]
 
 2.0. [Despliegue De La herramienta Vagrant](#Despliegue-de-la-herramienta-Vagrant) 
 -    2.1. [Escenario De La práctica](#Escenario-de-la-práctica)
@@ -41,7 +42,7 @@ De igual manera, nuestros servidores backend apache2 se podrán conectar a nuest
 Nuestro servidor MariaDB solo podrá conectarse a nuestros backend y de igualmanera no tendrán acceso a internet.
 **(NOTA).-** ***Cuando decimos que no tendrán acceso a internet, será cuando terminemos de instalar los servicios correspondientes.***
 
-## ¿Qué es una VPC en AWS?
+## Qué es una VPC en AWS
 
 En este apartado, antes de empezar me gustaría definir lo siguiente, ¿Que es una VPC?
 Una VPC (Virtual Private Cloud) en AWS es un servicio que nos permite crear una red virtual aislada en la nube de Amazon.
