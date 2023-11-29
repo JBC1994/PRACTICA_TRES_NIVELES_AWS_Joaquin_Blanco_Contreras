@@ -3,15 +3,14 @@
 
 1.0. [Implementación y Configuración de Balanceador de Carga con Apache en AWS](#Implementación-y-Configuración-de-Balanceador-de-Carga-con-Apache-en-AWS)
 -    1.1. [Escenario De La práctica](#Escenario-de-la-práctica)
--    1.2. [¿ Qué es una VPC en AWS ?](#Qué-es-una-VPC-en-AWS)
+-    1.2. [¿Qué es una VPC en AWS?](#Qué-es-una-VPC-en-AWS)
 -    1.3. [Creación de VPC en AWS](#Creación-de-VPC-en-AWS)
--    1.4. [¿ Qué es una EC2 en AWS ?](#Qué-es-una-EC2-en-AWS)
+-    1.4. [¿Qué es una EC2 en AWS?](#Qué-es-una-EC2-en-AWS)
 -    1.5. [Creación de EC2 en AWS](#Creación-de-EC2-en-AWS)
 
 2.0. [¿ Qué es una IP elástica en AWS ?](#Qué-es-una-IP-elástica-en-AWS) 
 -    2.1. [Asociar una IP elástica a una instancia AWS](#Asociar-una-IP-elástica-a-una-instancia-AWS)
 -    2.2. [Conexión a instancias EC2 AWS](#Conexión-a-instancias-EC2-AWS)
-
 
 3.0. [Descarga De Repositorios](#Descarga-de-repositorios)
 -    3.1. [Configuración De Cliente Apache2](#Configuración-de-Cliente-Apache2)
