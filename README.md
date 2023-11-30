@@ -13,8 +13,8 @@
 -    2.2. [Conexión a instancias EC2 AWS](#Conexión-a-instancias-EC2-AWS)
 
 3.0. [Instalación de servicios en instancias AWS](#Instalación-de-servicios-en-instancias-AWS)
--    3.1. [Configuración De Cliente Apache2](#Configuración-de-Cliente-Apache2)
--    3.2. [Configuración De Servidor MariaDB](#Configuración-De-Servidor-MariaDB)
+-    3.1. [Configuración de conectividad en instancias AWS](#Configuración-de-conectividad-en-instancias-AWS)
+-    3.2. [Creación de dominio en NO-ip](#Creación-de-dominio-en-NO-ip)
 
 4.0. [Pila Lamp en marcha](#Pila-Lamp-en-marcha) 
 -    4.1. [Consulta desde cliente Apache2 A Servidor MariaDB](#Consulta-desde-cliente-Apache2-A-Servidor-MariaDB)
@@ -183,7 +183,61 @@ Una vez ahí, le daremos a "Reglas de salida" y agregaremos una nueva regla de s
 
 Bien, una vez agregada dicha opción esta máquina apache deberá de tener insternet sin problema alguno. (Haremos lo mismo con las demás), mi consejo es que apunteís bien lo que se hace en cada instancia.
 
-Empezamos con la descarga de servicios, en cada una de las instancias. 
+Empezamos con la descarga de servicios, en cada una de las instancias.
+
+    Recordemos:
+    Balanceador: 
+    1) sudo apt-get -y update   (Actualizamos repositorios).
+    2) sudo apt-get install -y apache2 (Instalamos los servicios **Apache2** aceptando los mensajes de confirmación en la instalación con **-y**.).
+    3) sudo apt-get install -y git (Instalamos los servicios **Github** aceptando los mensajes de confirmación en la instalación con **-y**.).
+    4) sudo apt-get install -y php libapache2-mod-php php-mysql (Instalamos el servicio **php** aceptando los mensajes de confirmación de instalación con **-y**.).
+    JoaquinApache2_Máquina1:
+    1) sudo apt-get -y update   (Actualizamos repositorios).
+    2) sudo apt-get install -y apache2 (Instalamos los servicios **Apache2** aceptando los mensajes de confirmación en la instalación con **-y**.).
+    3) sudo apt-get install -y php libapache2-mod-php php-mysql (Instalamos el servicio **php** aceptando los mensajes de confirmación de instalación con **-y**.).
+    4) sudo apt-get install -y mariadb-client-10.3  (Instalamos el servicio **MariaDB-Cliente** aceptando los mensajes de confirmación de instalación con **-y**.).
+    JoaquinApache2_Máquina2:
+    1) sudo apt-get -y update   (Actualizamos repositorios).
+    2) sudo apt-get install -y apache2 (Instalamos los servicios **Apache2** aceptando los mensajes de confirmación en la instalación con **-y**.).
+    3) sudo apt-get install -y php libapache2-mod-php php-mysql (Instalamos el servicio **php** aceptando los mensajes de confirmación de instalación con **-y**.).
+    4) sudo apt-get install -y mariadb-client-10.3  (Instalamos el servicio **MariaDB-Cliente** aceptando los mensajes de confirmación de instalación con **-y**.).
+    JoaquinMariaDB:
+    1) sudo apt -y update (Actualizamos repositorios).
+    2) sudo apt install -y mariadb-server-10.3 (Instalamos el servidor de **MariaDB-Server** aceptando los mensajes de confirmación en la instalación con **-y**.).
+
+Ahora descargado ya todos los servicios el procedimiento será el mismo que hicimos pasos mas arriba... Quitaremos las reglas de salida a internet de todas las máquinas menos la de **Balanceador**.
+
+
+## Configuración de conectividad en instancias AWS
+
+Para comprobar la conectividad que tenemos entre máquinas por ejemplo haciendo ping entre ellas, tendremos que tener en cuenta que las instancias de AWS siguen una regla de entrada y salida las cuales tenemos que trabajar. 
+En este caso, según el esquema de red y condiciones dichas anteriormente necesitamos tener conectividad en local entre máquinas Balanceador y instancias backend Apache2, pero no con el servidor MariaDB.
+***NOTA:*** Tendremos que tener en cuenta, que tanto al servidor Balanceador como a los server backend se les enviará una petición por los puertos 80 o 443, además del tráfico interno de la red.
+Configuración servidor Balanceador:
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/eff09c13-98ae-45b3-a047-de94130f21f2)
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/c1c1db64-80ef-4fec-be83-2a02a40d75f7)
+
+Configuración backend Apaches:
+
+Aquí estmaos agregando que todo tráfico de entrada 192.168.1.0/24, tanto de servidor Balanceador y Server MariaDB puedan tener ping a esta máquina. El puerto 3306 es por donde escucha el servidor MariaDB, así qué directamente lo metemos en su grupo.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/084dba76-3d97-4a74-b0eb-7968f81ab24e)
+
+Configuración Servidor MariaDB:
+
+Habilitamos el tráfico de salida a los grupos backend para que solo tenga ping y respuesta con ellos, en la entrada igual, y agregamos el puerto 3306 con el que trabaja MariaDB.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/07046b13-3e8e-45ad-960e-d9f9d4864a1e)
+
+**PRUEBA DE CONECTIVIDAD**
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/ab2a3184-cc3d-4691-ac00-da9754158c28)
+
+## Creación de dominio en NO-ip
+
+
+
 
 
 
