@@ -337,6 +337,36 @@ Como vemos se ha ejecutado correctamente, pero, ¿Lo tendremos descargado en nue
 Pues sí, ¡efectivamente! Esto ha sido un exito. 
 Repetiremos esta misma accion con nuestras instancias backend, y desde nuestras maquinas backend hacerla con el servidor MariaDB. ¿Porque en MariaDB? Pues porque esta carpeta contiene una BBDD imprescindible para nuestra práctica.
 
+Una vez repetida está acción en nuestros server backend, accedemos dentro de la carpeta **iaw-practica-lamp** y copiamos la carpeta **"db"** a nuestro servidor MariaDB.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/ce46f09a-f2ce-4a33-af39-5c31866cdb6d)
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/121ac3b7-254b-4e72-b763-75f73861d23c)
+
+Después de esto, nos iremos a nuestro servidor MariaDB y modificaremos el siguiente fichero, **"50-server.cnf"** que lo encontraremos en el siguiente directorio **/etc/mysql/mariadb.conf.d/50-server.cnf**. De lo que se trata aquí es que el servidor MariaDB escuche en su dirección IP propia de la máquina local, en este caso la 192.168.1.134. Gracias a esto prevenimos que nadie pueda acceder a ella desde el exterior, solo en red local, por lo que ganaremos mucha más seguridad para nuestros datos.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/927f7685-8a61-420d-9e1d-24b1a0db6795)
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/7122568f-67a5-42c6-ad6e-382e45f0b471)
+
+Después de esto nos vamos a nuestro $HOME, y cargaremos la BBDD que tiene dentro de la carpeta **db**.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/4acacd39-4510-45a5-bf80-609e07850ee3)
+
+
+
+nos quedaremos con lo que tenemos en la carpeta iaw-practica-lamp, dentro de la misma movemos la carpeta **"src"** y la moveremos a **/var/www/html** que es el directorio donde apache guarda sus sitios webs.
+
+    cd iaw-practica-lamp
+    sudo mv src /var/www/html/
+    cd /var/www/html/
+
+
+
+
+
+ 
+
 
 
 
