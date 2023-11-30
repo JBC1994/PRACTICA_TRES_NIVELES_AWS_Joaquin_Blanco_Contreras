@@ -17,7 +17,7 @@
 -    3.2. [Creación de dominio en NO-ip](#Creación-de-dominio-en-NO-ip)
 -    3.3. [HTTPS con Let’s Encrypt y Certbot en instancia Balanceador AWS](#HTTPS-con-Let’s-Encrypt-y-Certbot-en-instancia-Balanceador-AWS)
 -    3.4. [Configuración Balanceador AWS](#Configuración-Balanceador-AWS)
--    3.5. [Repositorio GitHub, con SCP en AWS para instancias backend y MariaDB](#Repositorio-GitHub,-con-SCP-en-AWS-para-instancias-backend-y-MariaDB)
+-    3.5. [Repositorio GitHub, con SCP en AWS para instancias backend y MariaDB](#Repositorio-GitHub-con-SCP-en-AWS-para-instancias-backend-y-MariaDB)
 
 4.0. [Pila Lamp en marcha](#Pila-Lamp-en-marcha) 
 -    4.1. [Consulta desde cliente Apache2 A Servidor MariaDB](#Consulta-desde-cliente-Apache2-A-Servidor-MariaDB)
@@ -305,7 +305,7 @@ Ahora volvemos de nuevo a, **/etc/apache2/sites-available/**
     
 Bien, una vez hecho esto, nuestro servidor Balanceador ya estaría preparado para enviar peticiones a los servidores backend.
 
-## Repositorio GitHub, con SCP en AWS para instancias backend y MariaDB
+## Repositorio GitHub con SCP en AWS para instancias backend y MariaDB
 
     
 
