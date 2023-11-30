@@ -15,6 +15,8 @@
 3.0. [Instalación de servicios en instancias AWS](#Instalación-de-servicios-en-instancias-AWS)
 -    3.1. [Configuración de conectividad en instancias AWS](#Configuración-de-conectividad-en-instancias-AWS)
 -    3.2. [Creación de dominio en NO-ip](#Creación-de-dominio-en-NO-ip)
+-    3.3. [HTTPS con Let’s Encrypt y Certbot en instancia Balanceador AWS](#HTTPS-con-Let’s-Encrypt-y-Certbot-en-instancia-Balanceador-AWS)
+-    3.4. [Configuración Balanceador AWS](#Configuración-Balanceador-AWS)
 
 4.0. [Pila Lamp en marcha](#Pila-Lamp-en-marcha) 
 -    4.1. [Consulta desde cliente Apache2 A Servidor MariaDB](#Consulta-desde-cliente-Apache2-A-Servidor-MariaDB)
@@ -236,10 +238,75 @@ Habilitamos el tráfico de salida a los grupos backend para que solo tenga ping 
 
 ## Creación de dominio en NO-ip
 
+Llegados hasta aquí, y tenga sentido nuestra práctica, lo aconsejable sería tener nuestro propio dominio, asociando esté a la dir ip pública que nos proporcionó nuestra plataforma AWS.
+Recordemos la IP pública...
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/50d4e24a-9f1d-4d57-8c22-8e3ccf3a75c1)
+
+Bien, esa dirección ip la asociaremos a nuestro nombre de dominio.
+En mi caso, me he creado el dominio en la pag de: https://my.noip.com/ , os creáis una cuenta y la configurais a vuestro gusto.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/7c88d13b-33a3-4f55-bb37-31363766aec9)
+
+Una vez creado el nombre de dominio y asignando este a nuestra dirección ip pública avanzaremos un poquito más en nuestra práctica.
+
+## HTTPS con Let’s Encrypt y Certbot en instancia Balanceador AWS
+
+Este certificado nos asegurará trabajar con una identidad certificadora la cual nos permitirá asociar nuestro nombre de dominio a un certificado seguro. 
+Bien, empecemos, en nuestra instancia Balanceador, instalaremos el siguiente servicio.
+
+    COMANDOS:
+        sudo apt install snapd
+        sudo snap install core
+        sudo snap refresh core
+        sudo apt-get remove certbot
+        sudo snap install –classic certbot
+        sudo ln -s /snap/bin/certbot /usr/bin/certbot
+        sudo certbot –apache
+        
+    TAMBIÉN HABILITAREMOS LOS SIGUIENTES MODULOS PARA POSIBLES PROBLEMAS:
+    sudo a2enmod proxy && sudo a2enmod proxy_http && sudo a2enmod proxy_ajp && sudo a2enmod rewrite && sudo a2enmod deflate && sudo a2enmod headers && sudo a2enmod proxy_balancer && sudo a2enmod         
+    proxy_connect && sudo a2enmod proxy_html && sudo a2enmod lbmethod_byrequests 
+
+    REINICIAMOS NUESTRO SERVIDOR:
+    systemctl restart apache2  
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/af9ce2fa-d782-4ba9-b164-66b215e34406)
+
+Después de las instalaciones pertenecientes según indicaciones, si nos vamos a nuestro navegador y ponemos el nombre de nuestro dominio, esté se tiene que resolver y apuntar a nuestro apache2 balanceador. En mi caso, hice la consulta de la siguiente manera, https://joaquiniaw.ddns.net .
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/206f61fa-da36-42ac-9f0e-a02c2375833e)
+
+## Configuración Balanceador AWS
+
+Para que nuestro Balanceador funcione como tal, tendremos que hacer lo siguiente. 
+Nos iremos a la siguiente ruta: **/etc/apache2/sites-available/**
+Una vez ahí, os recomiendo cambiar de nombre el fichero **000-default-le-ssl.conf** por "**Balanceador**" así nos será mucho mas identificativos y prevenimos de posibles problemas. 
+**NOTA:** (¡OJO!, ESTOY TRABAJANDO CON UNA COPIA DEL FICHERO, 000-default.le-ssl.conf). Este fichero no lo tocamos para ¡NADA!.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/cf50a48f-6b83-4b0c-8f9a-7c82af625ede)
+
+Bien una vez le hayamos cambiado el nombre hacemos lo siguiente, y escribimos las siguientes instrucciones.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/7e53b13f-397e-495e-897b-265e7e5cbd22)
+
+Si os fijáis en las imágenes he puesto la IP de nuestros servidores backend apaches. Esto nos será muy útil para que en la llamada a nuestro dominio se les redirija a uno u otro. Así como la propia palabra indica, "Balanceamos" el tráfico de peticiones. 
+
+Bien, una vez hecho esto escribimos los siguientes comandos:
+Nos vamos a **cd /etc/apache2/sites-enabled/**
+Veremos que tenemos 2 habilitados. 
+Ahora volvemos de nuevo a, **/etc/apache2/sites-available/**
+
+    a2dissite 000-default.conf
+    a2dissite 000-default.le-ssl.conf
+    a2ensite Balanceador.conf
+    systemctl reload apache2
+    
+Bien, una vez hecho esto, nuestro servidor Balanceador ya estaría preparado para enviar peticiones a los servidores backend.
 
 
 
-
+    
 
 
 
