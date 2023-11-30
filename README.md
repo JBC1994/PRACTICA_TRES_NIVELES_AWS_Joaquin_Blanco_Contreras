@@ -161,8 +161,7 @@ Este paso lo repetiremos con las distintas instancias que tengamos.
 
 Hasta aquí, ¿bien, no? pero esto no es factible como hemos dicho antes, lo recomendable es tener 4 terminales de windows abiertas, ingresando como Balanceador como hemos hecho en pasos anteriores, y de ahí ir pasando de máquina a máquina por ssh. 
 
-![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/0a3b80d1-3f0d-474c-bf71-e4affd52268d)
-
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/eb170864-f076-495b-9f53-9dbe14675d16)
 
 
 
