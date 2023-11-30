@@ -19,9 +19,9 @@
 -    3.4. [Configuración Balanceador AWS](#Configuración-Balanceador-AWS)
 -    3.5. [Repositorio GitHub, con SCP en AWS para instancias backend y MariaDB](#Repositorio-GitHub-con-SCP-en-AWS-para-instancias-backend-y-MariaDB)
 
-4.0. [Pila Lamp en marcha](#Pila-Lamp-en-marcha) 
--    4.1. [Consulta desde cliente Apache2 A Servidor MariaDB](#Consulta-desde-cliente-Apache2-A-Servidor-MariaDB)
--    4.2. [Comprobación de consulta con servidor MariaDB](#Comprobación-de-consulta-con-servidor-MariaDB)
+4.0. [Puesta en marcha de nuestro Balanceador](#Puesta-en-marcha-de-nuestro-Balanceador) 
+-    4.1. [Configuración instancia server MariaDB AWS](#Configuración-instancia-server-MariaDB-AWS)
+-    4.2. [Configuración instancias backend en AWS servicio GitHub](#Configuración instancias-backend-en-AWS-servicio-GitHub)
 
 
 
@@ -353,6 +353,10 @@ Después de esto nos vamos a nuestro **$HOME**, y cargaremos la BBDD que tiene d
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/4acacd39-4510-45a5-bf80-609e07850ee3)
 
+## Puesta en marcha de nuestro Balanceador 
+
+A partir de aquí teniendo en cuenta las configuraciones anteriores, tenemos que entender que nos queda muy poco para que esta práctica tenga sentido. Configuraremos lo que nos queda de las instancias backend y MariaDB para dar como resultado una práctica muy completa y profesional bajo demanda.
+
 ## Configuración instancia server MariaDB AWS
 
 Una vez hecho los pasos anteriores, en este apartado deberemos de crear un usuario y asociar este a la BBDD. Ponemos **%** en la zona de la IP de nuestro usuario, esto nos permitirá decirle a nuestro servidor que este usuario dentro del rango de IP **192.168.1.0/24** pueda conectarse a la BBDD remotamente. 
@@ -377,7 +381,7 @@ Bien, una vez en dicho directorio haremos lo siguiente, cambiaremos la propiedad
     
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/a63a8653-301d-4ad5-888f-54568afaf131)
 
-Dentro de esta carpeta **"src"** encontraremos un fichero llamado **"config.php"**, este lo configuraremos. 
+Dentro de esta carpeta **"src"** encontraremos un fichero llamado **"config.php"**, este lo configuraremos de la siguiente manera. 
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/47d0e582-29af-4b45-9a61-b2169c288c74)
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/cc0fde84-6e16-4b8a-be22-211cf00c718e)
