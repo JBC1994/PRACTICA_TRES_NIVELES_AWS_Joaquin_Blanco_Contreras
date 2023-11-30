@@ -415,7 +415,7 @@ Ahora voy a probar a enviar una petición desde mi dispositivo móvil al dominio
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/6e43a89d-45f3-4267-8047-24e7427c2d56)
 
-Pues efectivamente, en mi caso tengo un terminal "iphone" con ios 17 tal y como se muestra en nuestro backend. La hora es una menos debido a la configuración de las instancias debian.
+Pues efectivamente, en mi caso tengo un terminal "iphone" con IOS 17 tal y como se muestra en nuestro backend en este caso, **"JoaquinApache2_Maquina1"**. La hora es una menos debido a la configuración de las instancias debian.
 
 
 
