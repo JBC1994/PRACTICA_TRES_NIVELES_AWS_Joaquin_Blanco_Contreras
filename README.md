@@ -349,17 +349,38 @@ Después de esto, nos iremos a nuestro servidor MariaDB y modificaremos el sigui
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/7122568f-67a5-42c6-ad6e-382e45f0b471)
 
-Después de esto nos vamos a nuestro $HOME, y cargaremos la BBDD que tiene dentro de la carpeta **db**.
+Después de esto nos vamos a nuestro **$HOME**, y cargaremos la BBDD que tiene dentro de la carpeta **db**.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/4acacd39-4510-45a5-bf80-609e07850ee3)
 
+## Configuración instancia server MariaDB AWS
+
+Una vez hecho los pasos anteriores, en este apartado deberemos de crear un usuario y asociar este a la BBDD. Ponemos **%** en la zona de la IP de nuestro usuario, esto nos permitirá decirle a nuestro servidor que este usuario dentro del rango de IP **192.168.1.0/24** pueda conectarse a la BBDD remotamente. 
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/3cf99287-f1d4-4ff6-aad3-f8d80fbba6fe)
+
+Ahora agregamos privilegios a nuestro usuario sobre la BBDD que hemos precarpado anteiormente.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/996b67e7-c9aa-4fef-8637-3f1054f03b86)
 
 
-nos quedaremos con lo que tenemos en la carpeta iaw-practica-lamp, dentro de la misma movemos la carpeta **"src"** y la moveremos a **/var/www/html** que es el directorio donde apache guarda sus sitios webs.
+## Configuración instancias backend en AWS servicio GitHub
+
+Nos quedaremos con lo que tenemos en la carpeta iaw-practica-lamp, dentro de la misma movemos la carpeta **"src"** y nos dirigimos a **/var/www/html** que es el directorio donde apache guarda sus sitios webs.
 
     cd iaw-practica-lamp
     sudo mv src /var/www/html/
     cd /var/www/html/
+Bien, una vez en dicho directorio haremos lo siguiente, cambiaremos la propiedad del archivo a **www-data** usuario que crea apache con privilegios para acceder a los sitios webs.
+
+    COMANDO: sudo chown www-data:www-data src
+    
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/a63a8653-301d-4ad5-888f-54568afaf131)
+
+Dentro de esta carpeta **"src"** encontraremos un fichero llamado **"config.php"**, este lo configuraremos. 
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/47d0e582-29af-4b45-9a61-b2169c288c74)
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/cc0fde84-6e16-4b8a-be22-211cf00c718e)
 
 
 
