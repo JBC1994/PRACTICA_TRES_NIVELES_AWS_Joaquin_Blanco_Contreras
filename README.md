@@ -124,7 +124,7 @@ En mi caso se encuentra en una carpeta que he creado donde almaceno mis práctic
 
 Bien, una vez guardada nuestra clave, abrimos una nueva "Terminal", os recomiendo abrir 4 para tener una mejor organización, así identificais cada una de las máquinas.  
 
-    Comando utilizado: ssh -i labsuser.pem admin@ec2-3-228-114-171.compute-1.amazonaws.com ("admin"@"Aquí tendremos que poner nuestra DNS que nos proporcionó AWS)
+    Comando utilizado: ssh -i labsuser.pem admin@ec2-3-228-114-171.compute-1.amazonaws.com ("admin"@"Aquí tendremos que poner nuestra DNS que nos proporcionó AWS")
     
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/907d2ea8-b5ff-420a-9a32-ff3bc91ed12d)
 
@@ -139,7 +139,27 @@ Bien, solucionemos esto de la siguiente manera, ejecutaremos el siguiente comand
     scp -i labsuser.pem labsuser.pem admin@ec2-3-228-114-171.compute-1.amazonaws.com: /home/admin
     (Recordemos que aquí: admin@"Poner nuestra DNS pública).
 
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/c99e7f26-ee6a-4327-89c6-1a7dc2d5fa93)
 
+Ahora vemos como en nuestra maquina balanceador tenemos la clave copiada. 
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/f43f71ab-65f4-43f8-8bd8-e7be5c5ba0ad)
+
+Recordemos que para que nos podamos conectar a las demás maquinas tenemos que ejercer permisos a nuestra clave, sino no habrá forma de poder conectarnos a las demás maquinas. 
+
+    Este sería el comando: chmod 400 labsuser.pem
+    Ahora ejecutariamos este otro:
+    ssh -i labsuser.pem admin@192.168.1.135 (IP de la maquina a la cual nos queremos conectar, en mi caso JoaquinApache_Maquina1)
+
+Ahora copiaremos dicha clave a las demás máquinas, de nada nos sirve conectarnos a una solo.
+
+    scp -i labsuser.pem labsuser.pem admin@192.168.1.135:/home/admin labsuser.pem (Le hemos pasado la clave "labsuser.pem" a la maquina Apache)
+    
+Este paso lo repetiremos con las distintas instancias que tengamos.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/37779568-7285-4a9a-9f41-df8449767d36)
+
+Hasta aquí, ¿bien, no? pero esto no es factible como hemos hablado antes, lo recomendable es tener 4 terminales de windows abiertas, ingresando como Balanceador como hemos hecho en pasos anteriores y de ahí ir pasando de máquina a máquina por ssh. 
 
 
 
