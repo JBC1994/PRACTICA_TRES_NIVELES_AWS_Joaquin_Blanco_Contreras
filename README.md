@@ -12,7 +12,7 @@
 -    2.1. [Asociar una IP elástica a una instancia AWS](#Asociar-una-IP-elástica-a-una-instancia-AWS)
 -    2.2. [Conexión a instancias EC2 AWS](#Conexión-a-instancias-EC2-AWS)
 
-3.0. [Descarga De Repositorios](#Descarga-de-repositorios)
+3.0. [Instalación de servicios en instancias AWS](#Instalación-de-servicios-en-instancias-AWS)
 -    3.1. [Configuración De Cliente Apache2](#Configuración-de-Cliente-Apache2)
 -    3.2. [Configuración De Servidor MariaDB](#Configuración-De-Servidor-MariaDB)
 
@@ -162,6 +162,8 @@ Este paso lo repetiremos con las distintas instancias que tengamos.
 Hasta aquí, ¿bien, no? pero esto no es factible como hemos dicho antes, lo recomendable es tener 4 terminales de windows abiertas, ingresando como Balanceador como hemos hecho en pasos anteriores, y de ahí ir pasando de máquina a máquina por ssh. 
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/eb170864-f076-495b-9f53-9dbe14675d16)
+
+## Instalación de servicios en instancias AWS
 
 
 
