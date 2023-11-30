@@ -307,7 +307,25 @@ Bien, una vez hecho esto, nuestro servidor Balanceador ya estaría preparado par
 
 ## Repositorio GitHub con SCP en AWS para instancias backend y MariaDB
 
+En ese apartado, trabajaremos con el repositorio de nuestro buen amigo, "jose juan sanchez", el cuál tiene un repositorio subido muy sencillo pero que es estupendo para poner a prueba está práctica y nuestros conocimientos.
+Os dejamos el link para que podaís clonarlo en vuestras instancias. 
+
+    https://github.com/josejuansanchez/iaw-practica-lamp.git
     
+Bien, con este link haremos lo siguiente, en nuestra instancia **"Balanceador"** ejecutaremos el comando: (Recordemos que para hacer esto, tenemos que tener instalado el servicio de Git en nuestra instancia, cosa que os pongo al principio del post).
+
+    sudo git clone https://github.com/josejuansanchez/iaw-practica-lamp.git
+    
+Esto nos dará como resultado el respositorio descargado en nuestro directorio activo, con el cual estamos trabajando en **Balanceador**.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/e5f312cc-6da2-4098-a6eb-a90104d1812b)
+
+Hasta aquí, ¿Vamos bien, no?
+
+Recordemos lo siguiente, en las máquinas backend y MariaDB tenemos restringido el acceso, ¿Como pasamos ahora la carpeta descargada a cada instancia?
+Bien, pues para ello 
+
+
 
 
 
