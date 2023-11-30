@@ -159,11 +159,12 @@ Este paso lo repetiremos con las distintas instancias que tengamos.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/37779568-7285-4a9a-9f41-df8449767d36)
 
-Hasta aquí, ¿bien, no? pero esto no es factible como hemos dicho antes, lo recomendable es tener 4 terminales de windows abiertas, ingresando como Balanceador como hemos hecho en pasos anteriores, y de ahí ir pasando de máquina a máquina por ssh. 
+Hasta aquí, ¿bien, no? pero tal y como hemos dicho antes, esto no es factible, lo correcto seria tener 4 terminales de windows abiertas, ingresando como **Balanceador**, y de ahí ir pasando de máquina a máquina por ssh. 
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/eb170864-f076-495b-9f53-9dbe14675d16)
 
 ## Instalación de servicios en instancias AWS
+
 
 
 
