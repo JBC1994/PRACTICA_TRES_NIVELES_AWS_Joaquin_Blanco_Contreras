@@ -323,8 +323,19 @@ Esto nos dará como resultado el respositorio descargado en nuestro directorio a
 Hasta aquí, ¿Vamos bien, no?
 
 Recordemos lo siguiente, en las máquinas backend y MariaDB tenemos restringido el acceso, ¿Como pasamos ahora la carpeta descargada a cada instancia?
-Bien, pues para ello 
+Bien, pues para ello haremos lo siguiente, ejecutaremos el siguiente comando:
 
+    scp -i labsuser.pem -r iaw-practica-lamp admin@192.168.1.135:/home/admin
+    NOTA: Siempre que ejecutaremos cualquier servicio perteneciente al servicio SSH, necesitaremos nuestra clave .pem
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/a07366cb-07cf-4229-884d-94f8b137f970)
+
+Como vemos se ha ejecutado correctamente, pero, ¿Lo tendremos descargado en nuestra otra instancia?
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/4d1586de-74f2-4916-bc89-1305b6a77523)
+
+Pues sí, ¡efectivamente! Esto ha sido un exito. 
+Repetiremos esta misma accion con nuestras instancias backend, y desde nuestras maquinas backend hacerla con el servidor MariaDB. ¿Porque en MariaDB? Pues porque esta carpeta contiene una BBDD imprescindible para nuestra práctica.
 
 
 
