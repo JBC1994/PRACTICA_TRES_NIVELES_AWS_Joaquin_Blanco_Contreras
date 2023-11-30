@@ -21,7 +21,7 @@
 
 4.0. [Puesta en marcha de nuestro Balanceador](#Puesta-en-marcha-de-nuestro-Balanceador) 
 -    4.1. [Configuración instancia server MariaDB AWS](#Configuración-instancia-server-MariaDB-AWS)
--    4.2. [Configuración instancias backend en AWS servicio GitHub](#Configuración instancias-backend-en-AWS-servicio-GitHub)
+-    4.2. [Prueba definitiva Balanceador en AWS](#Prueba-definitiva-Balanceador-en-AWS)
 
 
 
@@ -349,6 +349,8 @@ Después de esto, nos iremos a nuestro servidor MariaDB y modificaremos el sigui
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/7122568f-67a5-42c6-ad6e-382e45f0b471)
 
+    NOTA: REINICIAMOS EL SERVICIO: sudo systemctl apache2 mysql
+
 Después de esto nos vamos a nuestro **$HOME**, y cargaremos la BBDD que tiene dentro de la carpeta **db**.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/4acacd39-4510-45a5-bf80-609e07850ee3)
@@ -387,7 +389,35 @@ Dentro de esta carpeta **"src"** encontraremos un fichero llamado **"config.php"
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/47d0e582-29af-4b45-9a61-b2169c288c74)
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/cc0fde84-6e16-4b8a-be22-211cf00c718e)
 
+    sudo systemctl apache2 restart
+
 Esta misma acción la repetiremos en nuestro otro servidor de backend apache2.
+
+## Prueba definitiva Balanceador en AWS
+
+Bien, para ver que esto esta funcionando correctamente es tan sencillo como irnos a nuestro navegador web (ventana privada) y escribir el nombre de nuestro dominio.
+En mi caso, **https://joaquiniaw.ddns.net/**
+Nos debería de salir algo así, en mi caso probé por insertar un par de datos.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/25ee78cd-bcbe-4aea-8ab6-e2fcd2a2697a)
+
+Comprobación en nuestro servidor MariaDB para ver si la información ha llegado correctamente.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/0e11cddc-360c-4dcf-8de7-fcbe3be8ec65)
+
+Como vemos la información ha llegado correctamente, pero, ¿Ha pasado la información por nuestras instancias backend? Debería de ser así, ya que está práctica trata precisamente de eso...
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/cb88c7e6-fee0-4e07-b367-70dfa51ee889)
+
+Pues como vemos, efectivamente, hemos encontrado una petición de un cliente, el cuál ha accedido desde el dominio **https://joaquiniaw.ddns.net/**, ha pasado por el "Balanceador" y de ahí a nuestro servidor backend en este caso, **JoaquinApache2_Máquina2**.
+
+Ahora voy a probar a enviar una petición desde mi dispositivo móvil al dominio, en teoría debería de enseñarnos si un dispositivo a accedido a nuestro servidor, lo veremos...
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/6e43a89d-45f3-4267-8047-24e7427c2d56)
+
+Pues efectivamente, en mi caso tengo un terminal "iphone" con ios 17 tal y como se muestra en nuestro backend. La hora es una menos debido a la configuración de las instancias debian.
+
+
 
 
 
