@@ -375,18 +375,19 @@ Nos quedaremos con lo que tenemos en la carpeta iaw-practica-lamp, dentro de la 
     cd iaw-practica-lamp
     sudo mv src /var/www/html/
     cd /var/www/html/
+    
 Bien, una vez en dicho directorio haremos lo siguiente, cambiaremos la propiedad del archivo a **www-data** usuario que crea apache con privilegios para acceder a los sitios webs.
 
     COMANDO: sudo chown www-data:www-data src
     
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/a63a8653-301d-4ad5-888f-54568afaf131)
 
-Dentro de esta carpeta **"src"** encontraremos un fichero llamado **"config.php"**, este lo configuraremos de la siguiente manera. 
+Dentro de esta carpeta **"src"** encontraremos un fichero llamado **"config.php"**, este lo configuraremos de la siguiente manera, pondremos nuestro nombre creado en la BBDD, IP por la que escuchará las peticiones del servidor MariaDB, el nombre de la BBDD con la cual vamos a trabajar y su contraseña. 
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/47d0e582-29af-4b45-9a61-b2169c288c74)
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/cc0fde84-6e16-4b8a-be22-211cf00c718e)
 
-
+Esta misma acción la repetiremos en nuestro otro servidor de backend apache2.
 
 
 
