@@ -97,22 +97,47 @@ Por no tener tanta redundancia de fotos enseñando lo mismo, quedaros con las co
 ## Qué es una IP elástica en AWS
 
 La gran pregunta aquí es, ¿Qué es una IP elástica en AWS?
-Una IP elástica en AWS es una dirección IP persistente que puedes asignar y reasignar a tus recursos en la nube, como instancias EC2. A diferencia de las IP estáticas tradicionales, las IP elásticas te permiten mantener la misma dirección incluso si detienes y reinicias tu instancia, proporcionando estabilidad para aplicaciones y servicios en la nube.
+Una IP elástica en AWS es una dirección IP persistente que puedes asignar y reasignar a tus recursos en la nube, como instancias EC2. A diferencia de las IP estáticas tradicionales, las IP elásticas nos permiten mantener la misma dirección incluso si detienes y reiniciamos nuestra instancia, proporcionando estabilidad para aplicaciones y servicios de la nube.
 
 ## Asociar una IP elástica a una instancia AWS
 
+Para asociar una IP elástica a nuestra instancia tenemos que pensar que en este caso lo lógico sería asociarsela a nuestro servidor **"Balanceador"**, que será través del cual podamos acceder de manera remota y poder configurar el resto de máquinas conectandonos por **SSH**, primero a nuestro Balanceador y de nuestro Balanceador a las otras máquinas.
+Nos iremos a: **VPC** , "ASOCIAR DIRECCIÓN IP ELÁSTICA" y de ahí escogeremos la de nuestro servidor "Balanceador", en este caso, la ip que le corresponde es **192.168.1.5**.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/e0ba1010-eb17-459e-bb7a-b67df94e8b9d)
+
+Ahora si nos vamos a nuestra máquina balanceador, veremos como tenemos nuestra "IP PÚBLICA" asociada.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/63ab5542-1a1b-4a31-8fa8-80b6da215b20)
 
 ## Conexión a instancias EC2 AWS
 
-Teniendo en cuenta que ya tenemos todas nuestras instancias, trataremos de configurarlas, pero para ello lo ideal sería conectarnos a ella por ssh. 
+Teniendo en cuenta que ya tenemos todas nuestras instancias, trataremos de configurarlas, pero para ello lo ideal sería conectarnos a ellas por ssh. 
 Pero, ¿Como hacemos para conectarnos por SSH a ellas? bien, nos iremos a nuestro laboratorio, de ahí nos iremos a **AWS-Details** Descargaremos la clave **"PEM"**.
 Recordemos guardar dicha clave en nuestro lugar de trabajo en el cual solemos trabajar.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/2d6bc954-0501-471a-a924-6b4841052e29)
 
 En mi caso se encuentra en una carpeta que he creado donde almaceno mis prácticas.
+
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/1cee00a3-bf8c-4a58-814f-e30bbc2a71f0)
-Bien, una vez guardada nuestra 
+
+Bien, una vez guardada nuestra clave, abrimos una nueva "Terminal", os recomiendo abrir 4 para tener una mejor organización, así identificais cada una de las máquinas.  
+
+    Comando utilizado: ssh -i labsuser.pem admin@ec2-3-228-114-171.compute-1.amazonaws.com ("admin"@"Aquí tendremos que poner nuestra DNS que nos proporcionó AWS)
+    
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/907d2ea8-b5ff-420a-9a32-ff3bc91ed12d)
+
+como vemos la conexión con nuestro servidor ha sido un éxito.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/9ee630d2-55ae-4be4-8800-3d347be46880)
+
+Una vez aquí, ¿porque no pensamos en como poder conectarnos a las demás máquinas? Pues debemos de tener una clave de igual manera para poder conectarnos a ellas. 
+Bien, solucionemos esto de la siguiente manera, ejecutaremos el siguiente comando en nuestra **Terminal**.
+
+    Este comando nos permite copiar nuestra clave del directorio actual a nuestra máquina Balanceador, para que desde ahí podamos hacer el mismo proceso con las demás máquinas.
+    scp -i labsuser.pem labsuser.pem admin@ec2-3-228-114-171.compute-1.amazonaws.com: /home/admin
+    (Recordemos que aquí: admin@"Poner nuestra DNS pública).
 
 
 
