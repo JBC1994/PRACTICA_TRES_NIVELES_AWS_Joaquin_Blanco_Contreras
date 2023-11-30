@@ -165,6 +165,32 @@ Hasta aquí, ¿bien, no? pero tal y como hemos dicho antes, esto no es factible,
 
 ## Instalación de servicios en instancias AWS
 
+En este apartado trataremos de descargar los servicios que necesitare en nuestras 4 instancias AWS creadas.
+Bien, para ello doy por echo que tenemos nuestras 4 ventanas abiertas. 
+Pero... , ¿Cómo pensamos descargar los servicios si las instancias, excluyendo la del 'Balanceador' al que asignamos la IP elástica, no tienen acceso a internet?
+Bien, para que estas instancias tengan internet haremos lo siguiente, ¡OJO! Esto solo nos interesará hacerlo para descargar los servicios correspondientes a la práctica, despues obviamente si queremos seguir el escenario de red indicado tendremos que deshabilitarselo.
+
+Nos vamos a nuestras instancias EC2, seleccionamos en este caso la de "JoaquinApache2_Maquina1" (En mi caso).
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/3ca68500-4e62-4902-a12a-4ffcbee8fb0c)
+
+En la parte inferior nos iremos al apartado de "Seguridad" y seleccionaremos el grupo que tenemos asociado a la instancia.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/d16c7929-2929-419d-b455-867f42dbf1b2)
+
+Una vez ahí, le daremos a "Reglas de salida" y agregaremos una nueva regla de salida. Elegiremos "Tráfico de red TODO" y que el destino sea 0.0.0.0 .
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/ee261c3d-ac01-45e0-a569-ab69bab5109b)
+
+Bien, una vez agregada dicha opción esta máquina apache deberá de tener insternet sin problema alguno. (Haremos lo mismo con las demás), mi consejo es que apunteís bien lo que se hace en cada instancia.
+
+Empezamos con la descarga de servicios, en cada una de las instancias. 
+
+
+
+
+
+
+
 
 
 
