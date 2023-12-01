@@ -355,7 +355,7 @@ Después de esto nos vamos a nuestro **$HOME**, y cargaremos la BBDD que tiene d
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/4acacd39-4510-45a5-bf80-609e07850ee3)
 
-## Puesta en marcha de nuestro Balanceador 
+## Puesta en marcha de nuestro Balanceador AWS
 
 A partir de aquí teniendo en cuenta las configuraciones anteriores, tenemos que entender que nos queda muy poco para que esta práctica tenga sentido. Configuraremos lo que nos queda de las instancias backend y MariaDB para dar como resultado una práctica muy completa y profesional bajo demanda.
 
@@ -411,11 +411,11 @@ Como vemos la información ha llegado correctamente, pero, ¿Ha pasado la inform
 
 Pues como vemos, efectivamente, hemos encontrado una petición de un cliente, el cuál ha accedido desde el dominio **https://joaquiniaw.ddns.net/**, ha pasado por el "Balanceador" y de ahí a nuestro servidor backend en este caso, **JoaquinApache2_Máquina2**.
 
-Ahora voy a probar a enviar una petición desde mi dispositivo móvil al dominio, en teoría debería de enseñarnos si un dispositivo a accedido a nuestro servidor, lo veremos...
+Ahora vamos a probar a enviar una petición desde mi dispositivo móvil al dominio, en teoría debería de enseñarnos si un dispositivo a accedido a nuestro servidor, lo veremos...
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/6e43a89d-45f3-4267-8047-24e7427c2d56)
 
-Pues efectivamente, en mi caso tengo un terminal "iphone" con IOS 17 tal y como se muestra en nuestro backend en este caso, **"JoaquinApache2_Maquina1"**. La hora es una menos debido a la configuración de las instancias debian.
+Pues efectivamente, en mi caso tengo un terminal "iphone" con IOS 17 tal y como se muestra en nuestro backend en este caso, **"JoaquinApache2_Maquina1"**. La hora que vemos en la instancia es una menos debido a la configuración de AWS.
 
 
 
