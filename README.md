@@ -30,8 +30,8 @@
 
 Bien, como vimos en prácticas anteriores las cuales se pueden ver en mis post abiertos de github, está no será menos, y será una continuación de la anterior (Práctica lamp dos niveles). 
 En este caso proponemos una práctica distinta, y más profesional según lo solicitado en empresas. 
-Está práctica tendrá en común varias herramientas con las que hemos trabajado ya, y sino lo hemos echo, las aprenderemos.
-Tratará sobre un "Balanceador de carga con Apache" esté nos permitirá aceptar todas las peticiones que haga un cliente, y a su vez gestionarla con varios host apaches para balancear la carga de uno a otro, y así no sobrecargar el servidor principal. Ésto muy útil porque a parte de gestionar mejor el tráfico de solicitudes, si uno falla, el otro seguirá activo. Obviamente, como hemos comentado en el título está práctica se hará completamente en la plataforma de AWS.
+Está práctica tendrá en común varias herramientas con las que hemos trabajado ya, y si no lo hemos hecho, las aprenderemos.
+Tratará sobre un "Balanceador de carga con Apache" esté nos permitirá aceptar todas las peticiones que haga un cliente, y a su vez gestionarla con varios hosts apaches para balancear la carga de uno a otro, y así no sobrecargar el servidor principal. Esto es muy útil porque aparte de gestionar mejor el tráfico de solicitudes, si uno falla, el otro seguirá activo. Obviamente, como hemos comentado en el título está práctica se hará completamente en la plataforma de AWS.
 
 
 ## Escenario De La práctica
@@ -40,7 +40,7 @@ Tratará sobre un "Balanceador de carga con Apache" esté nos permitirá aceptar
 
 Bien, según el escenario mostrado, nuestra práctica tratará sobre: Un Balanceador de carga, dos servidores apache2, un servidor mariadb-server.
 En cada uno de ellos tendremos sus correspondientes configuraciones, pero todo ello en nuestro ecosistema de AWS. 
-Trabajaremos con 2 subredes, una de ella la haremos publica y la otra obviamente quedará como privada. Con la pública haremos NAT para poder tener salida a internet junto con una IP Elástica que AWS nos proporcionará.
+Trabajaremos con 2 subredes, una de ellas la haremos pública y la otra obviamente quedará como privada. Con la pública haremos NAT para poder tener salida a internet junto con una IP Elástica que AWS nos proporcionará.
 Tendremos que controlar que nuestro Balanceador tendrá acceso a internet y además deberá poder conectarse sin problemas a los host de backend apache2. Pero ¡NO! con nuestro servidor MariaDB.
 De igual manera, nuestros servidores backend apache2 se podrán conectar a nuestra máquina "Balanceador", estás máquinas no tendrán acceso a internet, y sí podrán conectarse con el servidor MariaDB.
 Nuestro servidor MariaDB solo podrá conectarse a nuestros backend y de igualmanera no tendrán acceso a internet.
@@ -57,7 +57,7 @@ Una VPC nos brinda el control y aislamiento sobre los recursos en la nube, permi
 ## Creación de VPC en AWS
 
 Bien, dicho lo anterior y poniéndonos un poco en contexto, creo que ya podemos empezar a desarrollar dicha práctica.
-Daré por echo que obviamente tenemos acceso a AWS y a un laboratorio para poder trabajar con la plataforma. 
+Daré por hecho que obviamente tenemos acceso a AWS y a un laboratorio para poder trabajar con la plataforma. 
 Bien, una vez dentro de nuestro laboratorio, accederemos a **"VPC"**.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/3633438b-1973-475e-8e87-bf4ad65dcb9f)
@@ -66,7 +66,7 @@ Dentro de VPC le daremos a **"Crear".**
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/f1bbae62-0e55-4d50-8638-43da20859e3d)
 
-Nos saldrá el siguiente menú, el cúal tendremos que configurar según nuestro escenario indicado.
+Nos saldrá el siguiente menú, el cuál tendremos que configurar según nuestro escenario indicado.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/2ba33c2a-eb6b-4327-8c77-0cb8bdab28e3)
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/25ff5a87-f446-47e0-92aa-1c3651d6f19b)
@@ -104,7 +104,7 @@ Una IP elástica en AWS es una dirección IP persistente que puedes asignar y re
 
 ## Asociar una IP elástica a una instancia AWS
 
-Para asociar una IP elástica a nuestra instancia tenemos que pensar que en este caso lo lógico sería asociarsela a nuestro servidor **"Balanceador"**, que será través del cual podamos acceder de manera remota y poder configurar el resto de máquinas conectandonos por **SSH**, primero a nuestro Balanceador y de nuestro Balanceador a las otras máquinas.
+Para asociar una IP elástica a nuestra instancia tenemos que pensar que en este caso lo lógico sería asociársela a nuestro servidor **"Balanceador"**, que será través del cual podamos acceder de manera remota y poder configurar el resto de máquinas conectándonos por **SSH**, primero a nuestro Balanceador y de nuestro Balanceador a las otras máquinas.
 Nos iremos a: **VPC** , "ASOCIAR DIRECCIÓN IP ELÁSTICA" y de ahí escogeremos la de nuestro servidor "Balanceador", en este caso, la ip que le corresponde es **192.168.1.5**.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/e0ba1010-eb17-459e-bb7a-b67df94e8b9d)
@@ -125,7 +125,7 @@ En mi caso se encuentra en una carpeta que he creado donde almaceno mis práctic
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/1cee00a3-bf8c-4a58-814f-e30bbc2a71f0)
 
-Bien, una vez guardada nuestra clave, abrimos una nueva "Terminal", os recomiendo abrir 4 para tener una mejor organización, así identificais cada una de las máquinas.  
+Bien, una vez guardada nuestra clave, abrimos una nueva "Terminal", os recomiendo abrir 4 para tener una mejor organización, así identificáis cada una de las máquinas.  
 
     Comando utilizado: ssh -i labsuser.pem admin@ec2-3-228-114-171.compute-1.amazonaws.com ("admin"@"Aquí tendremos que poner nuestra DNS que nos proporcionó AWS")
     
@@ -148,10 +148,10 @@ Ahora vemos como en nuestra maquina balanceador tenemos la clave copiada.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/f43f71ab-65f4-43f8-8bd8-e7be5c5ba0ad)
 
-Recordemos que para que nos podamos conectar a las demás maquinas tenemos que ejercer permisos a nuestra clave, sino no habrá forma de poder conectarnos a las demás maquinas. 
+Recordemos que para que nos podamos conectar a las demás maquinas tenemos que ejercer permisos a nuestra clave, si no, no habrá forma de poder conectarnos a las demás maquinas. 
 
     Este sería el comando: chmod 400 labsuser.pem
-    Ahora ejecutariamos este otro:
+    Ahora ejecutaríamos este otro:
     ssh -i labsuser.pem admin@192.168.1.135 (IP de la maquina a la cual nos queremos conectar, en mi caso JoaquinApache_Maquina1)
 
 Ahora copiaremos dicha clave a las demás máquinas, de nada nos sirve conectarnos a una solo.
@@ -169,9 +169,9 @@ Hasta aquí, ¿bien, no? pero tal y como hemos dicho antes, esto no es factible,
 ## Instalación de servicios en instancias AWS
 
 En este apartado trataremos de descargar los servicios que necesitare en nuestras 4 instancias AWS creadas.
-Bien, para ello doy por echo que tenemos nuestras 4 ventanas abiertas. 
+Bien, para ello doy por hecho que tenemos nuestras 4 ventanas abiertas. 
 Pero... , ¿Cómo pensamos descargar los servicios si las instancias, excluyendo la del 'Balanceador' al que asignamos la IP elástica, no tienen acceso a internet?
-Bien, para que estas instancias tengan internet haremos lo siguiente, ¡OJO! Esto solo nos interesará hacerlo para descargar los servicios correspondientes a la práctica, despues obviamente si queremos seguir el escenario de red indicado tendremos que deshabilitarselo.
+Bien, para que estas instancias tengan internet haremos lo siguiente, ¡OJO! Esto solo nos interesará hacerlo para descargar los servicios correspondientes a la práctica, después obviamente si queremos seguir el escenario de red indicado tendremos que deshabilitárselo.
 
 Nos vamos a nuestras instancias EC2, seleccionamos en este caso la de "JoaquinApache2_Maquina1" (En mi caso).
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/3ca68500-4e62-4902-a12a-4ffcbee8fb0c)
@@ -184,7 +184,7 @@ Una vez ahí, le daremos a "Reglas de salida" y agregaremos una nueva regla de s
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/ee261c3d-ac01-45e0-a569-ab69bab5109b)
 
-Bien, una vez agregada dicha opción esta máquina apache deberá de tener insternet sin problema alguno. (Haremos lo mismo con las demás), mi consejo es que apunteís bien lo que se hace en cada instancia.
+Bien, una vez agregada dicha opción está máquina apache deberá de tener internet sin problema alguno. (Haremos lo mismo con las demás), mi consejo es que apuntéis bien lo que se hace en cada instancia.
 
 Empezamos con la descarga de servicios, en cada una de las instancias.
 
@@ -223,7 +223,7 @@ Configuración servidor Balanceador:
 
 Configuración backend Apaches:
 
-Aquí estmaos agregando que todo tráfico de entrada 192.168.1.0/24, tanto de servidor Balanceador y Server MariaDB puedan tener ping a esta máquina. El puerto 3306 es por donde escucha el servidor MariaDB, así qué directamente lo metemos en su grupo.
+Aquí estamos agregando que todo tráfico de entrada 192.168.1.0/24, tanto de servidor Balanceador y Server MariaDB puedan tener ping a está máquina. El puerto 3306 es por donde escucha el servidor MariaDB, así qué directamente lo metemos en su grupo.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/084dba76-3d97-4a74-b0eb-7968f81ab24e)
 
@@ -245,7 +245,7 @@ Recordemos la IP pública...
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/50d4e24a-9f1d-4d57-8c22-8e3ccf3a75c1)
 
 Bien, esa dirección ip la asociaremos a nuestro nombre de dominio.
-En mi caso, me he creado el dominio en la pag de: https://my.noip.com/ , os creáis una cuenta y la configurais a vuestro gusto.
+En mi caso, me he creado el dominio en la pag de: https://my.noip.com/ , os creáis una cuenta y la configuráis a vuestro gusto.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/7c88d13b-33a3-4f55-bb37-31363766aec9)
 
@@ -308,7 +308,7 @@ Bien, una vez hecho esto, nuestro servidor Balanceador ya estaría preparado par
 ## Repositorio GitHub con SCP en AWS para instancias backend y MariaDB
 
 En ese apartado, trabajaremos con el repositorio de nuestro buen amigo, "jose juan sanchez", el cuál tiene un repositorio subido muy sencillo pero que es estupendo para poner a prueba está práctica y nuestros conocimientos.
-Os dejamos el link para que podaís clonarlo en vuestras instancias. 
+Os dejamos el link para que podáis clonarlo en vuestras instancias. 
 
     https://github.com/josejuansanchez/iaw-practica-lamp.git
     
@@ -316,7 +316,7 @@ Bien, con este link haremos lo siguiente, en nuestra instancia **"Balanceador"**
 
     sudo git clone https://github.com/josejuansanchez/iaw-practica-lamp.git
     
-Esto nos dará como resultado el respositorio descargado en nuestro directorio activo, con el cual estamos trabajando en **Balanceador**.
+Esto nos dará como resultado el repositorio descargado en nuestro directorio activo, con el cual estamos trabajando en **Balanceador**.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/e5f312cc-6da2-4098-a6eb-a90104d1812b)
 
@@ -334,8 +334,8 @@ Como vemos se ha ejecutado correctamente, pero, ¿Lo tendremos descargado en nue
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/4d1586de-74f2-4916-bc89-1305b6a77523)
 
-Pues sí, ¡efectivamente! Esto ha sido un exito. 
-Repetiremos esta misma accion con nuestras instancias backend, y desde nuestras maquinas backend hacerla con el servidor MariaDB. ¿Porque en MariaDB? Pues porque esta carpeta contiene una BBDD imprescindible para nuestra práctica.
+Pues sí, ¡efectivamente! Esto ha sido un éxito. 
+Repetiremos está misma acción con nuestras instancias backend, y desde nuestras maquinas backend hacerla con el servidor MariaDB. ¿Porque en MariaDB? Pues porque está carpeta contiene una BBDD imprescindible para nuestra práctica.
 
 Una vez repetida está acción en nuestros server backend, accedemos dentro de la carpeta **iaw-practica-lamp** y copiamos la carpeta **"db"** a nuestro servidor MariaDB.
 
@@ -357,7 +357,7 @@ Después de esto nos vamos a nuestro **$HOME**, y cargaremos la BBDD que tiene d
 
 ## Puesta en marcha de nuestro Balanceador AWS
 
-A partir de aquí teniendo en cuenta las configuraciones anteriores, tenemos que entender que nos queda muy poco para que esta práctica tenga sentido. Configuraremos lo que nos queda de las instancias backend y MariaDB para dar como resultado una práctica muy completa y profesional bajo demanda.
+A partir de aquí teniendo en cuenta las configuraciones anteriores, tenemos que entender que nos queda muy poco para que está práctica tenga sentido. Configuraremos lo que nos queda de las instancias backend y MariaDB para dar como resultado una práctica muy completa y profesional bajo demanda.
 
 ## Configuración instancia server MariaDB AWS
 
@@ -365,7 +365,7 @@ Una vez hecho los pasos anteriores, en este apartado deberemos de crear un usuar
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/3cf99287-f1d4-4ff6-aad3-f8d80fbba6fe)
 
-Ahora agregamos privilegios a nuestro usuario sobre la BBDD que hemos precarpado anteiormente.
+Ahora agregamos privilegios a nuestro usuario sobre la BBDD que hemos precargado anteriormente.
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/996b67e7-c9aa-4fef-8637-3f1054f03b86)
 
@@ -384,18 +384,18 @@ Bien, una vez en dicho directorio haremos lo siguiente, cambiaremos la propiedad
     
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/a63a8653-301d-4ad5-888f-54568afaf131)
 
-Dentro de esta carpeta **"src"** encontraremos un fichero llamado **"config.php"**, este lo configuraremos de la siguiente manera, pondremos nuestro nombre creado en la BBDD, IP por la que escuchará las peticiones del servidor MariaDB, el nombre de la BBDD con la cual vamos a trabajar y su contraseña. 
+Dentro de está carpeta **"src"** encontraremos un fichero llamado **"config.php"**, este lo configuraremos de la siguiente manera, pondremos nuestro nombre creado en la BBDD, IP por la que escuchará las peticiones del servidor MariaDB, el nombre de la BBDD con la cual vamos a trabajar y su contraseña. 
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/47d0e582-29af-4b45-9a61-b2169c288c74)
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/cc0fde84-6e16-4b8a-be22-211cf00c718e)
 
     sudo systemctl apache2 restart
 
-Esta misma acción la repetiremos en nuestro otro servidor de backend apache2.
+Está misma acción la repetiremos en nuestro otro servidor de backend apache2.
 
 ## Prueba definitiva Balanceador en AWS
 
-Bien, para ver que esto esta funcionando correctamente es tan sencillo como irnos a nuestro navegador web (ventana privada) y escribir el nombre de nuestro dominio.
+Bien, para ver que esto está funcionando correctamente es tan sencillo como irnos a nuestro navegador web (ventana privada) y escribir el nombre de nuestro dominio.
 En mi caso, **https://joaquiniaw.ddns.net/**
 Nos debería de salir algo así, en mi caso probé por insertar un par de datos.
 
