@@ -418,7 +418,7 @@ Ahora vamos a probar a enviar una petición desde mi dispositivo móvil al domin
 Pues efectivamente, en mi caso tengo un terminal "iphone" con IOS 17 tal y como se muestra en nuestro backend en este caso, **"JoaquinApache2_Maquina1"**. La hora que vemos en la instancia es una menos debido a la configuración de AWS.
 
 
-
+VIDEO: https://youtu.be/I3ecSSlvfD4?feature=shared
 
 
  
