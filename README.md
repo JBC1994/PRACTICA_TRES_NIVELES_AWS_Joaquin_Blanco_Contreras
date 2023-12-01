@@ -19,7 +19,7 @@
 -    3.4. [Configuración Balanceador AWS](#Configuración-Balanceador-AWS)
 -    3.5. [Repositorio GitHub, con SCP en AWS para instancias backend y MariaDB](#Repositorio-GitHub-con-SCP-en-AWS-para-instancias-backend-y-MariaDB)
 
-4.0. [Puesta en marcha de nuestro Balanceador](#Puesta-en-marcha-de-nuestro-Balanceador) 
+4.0. [Puesta en marcha de nuestro Balanceador AWS](#Puesta-en-marcha-de-nuestro-Balanceador-AWS) 
 -    4.1. [Configuración instancia server MariaDB AWS](#Configuración-instancia-server-MariaDB-AWS)
 -    4.2. [Prueba definitiva Balanceador en AWS](#Prueba-definitiva-Balanceador-en-AWS)
 
