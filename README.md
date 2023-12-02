@@ -15,7 +15,7 @@
 3.0. [Instalación de servicios en instancias AWS](#Instalación-de-servicios-en-instancias-AWS)
 -    3.1. [Configuración de conectividad en instancias AWS](#Configuración-de-conectividad-en-instancias-AWS)
 -    3.2. [Creación de dominio en NO-ip](#Creación-de-dominio-en-NO-ip)
--    3.3. [HTTPS con Let’s Encrypt y Certbot en instancia Balanceador AWS](#HTTPS-con-Let’s-Encrypt-y-Certbot-en-instancia-Balanceador-AWS)
+-    3.3. [HTTPS con Let’s Encrypt y Certbot en instancia Balanceador AWS](#HTTPS-con-Lets-Encrypt-y-Certbot-en-instancia-Balanceador-AWS)
 -    3.4. [Configuración Balanceador AWS](#Configuración-Balanceador-AWS)
 -    3.5. [Repositorio GitHub, con SCP en AWS para instancias backend y MariaDB](#Repositorio-GitHub-con-SCP-en-AWS-para-instancias-backend-y-MariaDB)
 
@@ -251,7 +251,7 @@ En mi caso, me he creado el dominio en la pag de: https://my.noip.com/ , os cre�
 
 Una vez creado el nombre de dominio y asignando este a nuestra dirección ip pública avanzaremos un poquito más en nuestra práctica.
 
-## HTTPS con Let’s Encrypt y Certbot en instancia Balanceador AWS
+## HTTPS con Lets Encrypt y Certbot en instancia Balanceador AWS
 
 Este certificado nos asegurará trabajar con una identidad certificadora la cual nos permitirá asociar nuestro nombre de dominio a un certificado seguro. 
 Bien, empecemos, en nuestra instancia Balanceador, instalaremos el siguiente servicio.
