@@ -409,7 +409,10 @@ Como vemos la información ha llegado correctamente, pero, ¿Ha pasado la inform
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/cb88c7e6-fee0-4e07-b367-70dfa51ee889)
 
-Pues como vemos, efectivamente, hemos encontrado una petición de un cliente, el cuál ha accedido desde el dominio **https://joaquiniaw.ddns.net/**, ha pasado por el "Balanceador" y de ahí a nuestro servidor backend en este caso, **JoaquinApache2_Máquina2**.
+Pues como vemos, efectivamente, hemos encontrado una petición de un cliente, el cuál ha accedido desde el dominio **https://joaquiniaw.ddns.net/**, ha pasado por el "Balanceador" y de ahí a nuestro servidor backend en este caso, **JoaquinApache2_Máquina2**. 
+Para acceder y ver la petición es tan fácil como meternos en nuestro servidor backend, da igual en uno u en otro, he irnos al fichero, **/var/log/apache2/access.log**.
+
+    tail **/var/log/apache2/access.log**
 
 Ahora vamos a probar a enviar una petición desde mi dispositivo móvil al dominio, en teoría debería de enseñarnos si un dispositivo a accedido a nuestro servidor, lo veremos...
 
