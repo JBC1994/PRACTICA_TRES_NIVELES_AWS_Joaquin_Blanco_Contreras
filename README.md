@@ -93,7 +93,11 @@ Para tener una mejor organización de las instancias, lo correcto sería darles 
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/407ccd01-eca8-4ee9-bad6-77cc22561151)
 
-Por no tener tanta redundancia de fotos enseñando lo mismo, quedaros con las configuraciones que veis en dichas fotos. No es más que eso, y tan solo, deberemos de crear tantas instancias como máquinas nos piden en el esquema, que son cuatro.
+Por no tener tanta redundancia de fotos enseñando lo mismo, quedaros con las configuraciones que veis en dichas fotos. No es más que eso, y tan solo, deberemos de crear tantas instancias como máquinas nos piden en el esquema, que son cuatro. 
+**NOTA:** Si miramos bien la imagen vemos que le he asociado una ip privada pública que fue la que creamos en la VPC. Pero en las demás instancias que trabajan con IP privadas ni se os ocurra. Pues solo hay que asignarle la otra IP privada que creamos previamente en la VPC.
+
+![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/59cb40e6-52ea-4cb5-b226-15b5e1c9548a)
+ 
 
 ![image](https://github.com/JBC1994/PRACTICA_TRES_NIVELES_AWS_Joaquin_Blanco_Contreras/assets/120668110/d219559a-4f82-4315-ad6c-281663ca24e7)
 
